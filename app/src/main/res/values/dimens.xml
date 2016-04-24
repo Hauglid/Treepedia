@@ -6,4 +6,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="headline_height">30dp</dimen>
+    <dimen name="img_height">40dp</dimen>
+    <dimen name="tag_size">20dp</dimen>
 </resources>
