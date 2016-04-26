@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,6 +43,15 @@ public class Home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+//        setupGallery();
+    }
+
+    private void setupGallery(){
+        ImageView im = (ImageView) findViewById(R.id.gallery_image);
+        im.setImageResource(R.drawable.oak_leaf);
+        TextView tw = (TextView) findViewById(R.id.gallery_title);
+        tw.setText("Treus Erectus");
     }
 
     @Override
@@ -82,7 +93,7 @@ public class Home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_search) {
 
         } else if (id == R.id.nav_gallery) {
@@ -94,5 +105,11 @@ public class Home extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void openDetails(View view){
+        Intent intent = new Intent(this, Details.class);
+        intent.putExtra(Details.EXTRA_NAME, ((TextView) findViewById(R.id.gallery_title)).getText().toString());
+        startActivity(intent);
     }
 }
